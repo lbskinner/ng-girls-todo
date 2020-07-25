@@ -5,8 +5,8 @@ import { TodoItem } from './interfaces/todo-item';
   selector: 'app-root',
   template: `
     <h1>Welcome to {{ title }}!</h1>
-
-    <app-input-button-unit></app-input-button-unit>
+    <!-- catch the submit event  -->
+    <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
 
     <ul>
       <!-- *ngFor is an Angular built-in directive
@@ -30,4 +30,7 @@ export class AppComponent {
     { title: 'develop app' },
     { title: 'deploy app' },
   ];
+  addItem(title: string) {
+    this.todoList.push({ title });
+  }
 }
