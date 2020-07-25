@@ -7,11 +7,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   for example inputElementRef, using a simple syntax - a hash -->
     <!-- keyup event has properties for more specific events -->
     <input
+      class="todo-input"
       #inputElementRef
       [value]="title"
       (keyup.enter)="submitValue($event.target.value)"
     />
-    <button (click)="submitValue(inputElementRef.value)">Save</button>
+    <button class="btn" (click)="submitValue(inputElementRef.value)">
+      Save
+    </button>
   `,
   styleUrls: ['./input-button-unit.component.css'],
 })
