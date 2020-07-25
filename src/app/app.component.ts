@@ -12,7 +12,8 @@ import { Component } from '@angular/core';
       works like an enhanced loop in Java
       * notation causes Angular to use the current element as a templayte when rendering the list -->
       <li *ngFor="let todoItem of todoList">
-        {{ todoItem.title }}
+        <!-- The item here in square brackets is the same as declared as the component's @Input -->
+        <app-todo-item [item]="todoItem"></app-todo-item>
       </li>
     </ul>
   `,
