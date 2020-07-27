@@ -15,7 +15,10 @@ import { TodoListService } from '../services/todo-list.service';
   * notation causes Angular to use the current element as a templayte when rendering the list -->
         <li *ngFor="let todoItem of todoList">
           <!-- The item here in square brackets is the same as declared as the component's @Input -->
-          <app-todo-item [item]="todoItem"></app-todo-item>
+          <app-todo-item
+            [item]="todoItem"
+            (remove)="removeItem($event)"
+          ></app-todo-item>
         </li>
       </ul>
     </div>
@@ -33,5 +36,9 @@ export class ListManagerComponent implements OnInit {
 
   addItem(title: string) {
     this.todoListService.addItem({ title });
+  }
+
+  removeItem(item) {
+    this.todoListService.deleteItem(item);
   }
 }
